@@ -1,4 +1,4 @@
 node_modules/
 .ruff_cache/
 nul
-
+.DS_Store
