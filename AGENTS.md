@@ -19,7 +19,7 @@ README 使用统一时间线记录以下三类书：
 
 ## 收到新摘录 Markdown 时
 
-1. **清理内容**：移除所有包含 `[在书中查看]` 的行，以及文件末尾的空标题和 `_Generated at: ..._` 导出元数据。
+1. **存放并清理内容**：将文件放入 `excerpts/`，移除所有包含 `[在书中查看]` 的行，以及文件末尾的空标题和 `_Generated at: ..._` 导出元数据。
 2. **生成 PDF**：运行 `node convert_to_pdf.js`（使用 `marked` + `puppeteer-core`，通过无头 Chrome 渲染）。
    - 输出 A4 格式 PDF。
    - `displayHeaderFooter: false`，无水印、无页眉页脚。
@@ -62,6 +62,7 @@ README 使用统一时间线记录以下三类书：
 ## README 索引规则
 
 1. 所有书统一按阅读时间倒序排列，不按阅读形式分组。
+   - 使用年份二级标题分组，书目使用三级标题。
    - 有摘录书按文件名中的完整时间排序。
    - 无摘录书按用户提供的阅读日期排序。
    - 同一天且没有更精确时间时，新加入的条目排在前面。
@@ -75,10 +76,10 @@ README 使用统一时间线记录以下三类书：
 
 ## 转换脚本说明
 
-- `convert_to_pdf.js` 自动扫描脚本目录下的摘录 `.md` 文件，并排除 `README.md` 和 `AGENTS.md`。
+- `convert_to_pdf.js` 自动扫描 `excerpts/` 目录下的摘录 `.md` 文件。
 - 每次运行都会先清理阅读链接和末尾导出元数据；仅当内容发生变化时才写回 Markdown。
 - 默认只生成缺失或比 Markdown 更旧的 PDF；运行 `node convert_to_pdf.js --force` 可强制重建全部 PDF。
-- PDF 与 Markdown 同名，仅扩展名不同。
+- PDF 与 Markdown 位于 `excerpts/`，文件同名，仅扩展名不同。
 
 ## Git 交付规则
 

@@ -3,8 +3,7 @@ const path = require('path');
 const { marked } = require('marked');
 const puppeteer = require('puppeteer-core');
 
-const folder = __dirname;
-const excludedMarkdown = new Set(['agents.md', 'readme.md']);
+const folder = path.join(__dirname, 'excerpts');
 const defaultChromePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 const css = `
@@ -54,7 +53,6 @@ function getMarkdownFiles() {
     .filter(entry => entry.isFile())
     .map(entry => entry.name)
     .filter(name => name.toLowerCase().endsWith('.md'))
-    .filter(name => !excludedMarkdown.has(name.toLowerCase()))
     .sort((a, b) => a.localeCompare(b, 'zh-CN'));
 }
 

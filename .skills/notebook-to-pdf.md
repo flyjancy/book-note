@@ -6,7 +6,7 @@
 ## 工作流程
 
 ### 1. 确认新文件
-扫描目录，找出没有对应 `.pdf` 的 `.md` 文件（排除 `AGENTS.md`）。
+扫描 `excerpts/` 目录，找出没有对应 `.pdf` 的 `.md` 文件。
 
 ### 2. 运行转换脚本
 直接执行 `node convert_to_pdf.js`，该脚本已内置：
@@ -37,6 +37,7 @@
 ├── convert_to_pdf.js               ← 转换脚本
 ├── AGENTS.md                       ← 项目说明
 ├── package.json                    ← 依赖配置
-├── *.md                            ← 读书笔记源文件
-└── *.pdf                           ← 生成的 PDF
+└── excerpts/
+    ├── *.md                        ← 读书笔记源文件
+    └── *.pdf                       ← 生成的 PDF
 ```
